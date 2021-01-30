@@ -146,3 +146,48 @@ p.footer {
   font-weight: 700;
   font-size: 16px;
 } */
+
+.custom-dialog{
+  display: none;
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.68);
+  text-align:center;
+  z-index: 1000;
+  letter-spacing: 1px;
+}
+
+.custom-dialog>h1{
+  margin:20% 0 -10px 0;
+  font-size: 5rem;
+  color: #f8ec46;
+  font-family: 'Courier New', Courier, monospace;
+}
+.custom-dialog>p{
+  color: white;
+}
+
+.custom-dialog button{
+  width:30%;
+  background-color: #fae89d;
+  color:#9c27b0;
+  border-radius: 20px;
+
+  margin: 5px;
+  border: 1px solid #e4be21;
+  height: 40px;
+  font-weight: 700;
+  font-size: 16px;
+}
+.custom-dialog .ad{
+  width: 80%;
+  height: 300px;
+  margin:20px auto;
+  /* background:white; */
+}
+
+.custom-dialog  a{ position: absolute;right:30px;top:30px; display: inline-block; width: 20px;height:3px; background: white;line-height: 0;font-size:0;vertical-align: middle;-webkit-transform: rotate(45deg);}
+.custom-dialog  a:after{content:'/';display:block;width: 20px;height:3px; background: white;-webkit-transform: rotate(-90deg);}
