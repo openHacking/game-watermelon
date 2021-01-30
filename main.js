@@ -204,7 +204,7 @@ window.boot = function () {
         BK.Script.loadlib();
     }
     else {
-        var bundledScript = settings.debug ? 'src/project.dev.js' : 'https://cdn.jsdelivr.net/gh/openHacking/game-watermelon/src/project.js';
+        var bundledScript = settings.debug ? 'src/project.dev.js' : 'https://cdn.jsdelivr.net/gh/openHacking/game-watermelon@1.0.1/src/project.js';
         if (jsList) {
             jsList = jsList.map(function (x) {
                 return 'https://cdn.jsdelivr.net/gh/openHacking/game-watermelon/src/' + x;
