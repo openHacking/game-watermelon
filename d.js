@@ -1,1 +1,152 @@
-eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('j.q("S",h(){j.k(".T").q("u",h(a){w();t()});j.k(".R").q("u",h(a){C.Q="N://O.P.U.V/s/10"});j.k(".p-m a").q("u",h(a){w();t()})},I);v.t=h(){l a=j.k(".p-m");a.9.y="";a.9.x="";a.9.F="";a.9.A="";a.9.z="11";j.k(".p-m a").9.G="Z"};v.Y=h(b){j.k(".p-m L").X=b;l a=j.k(".p-m");a.9.y="12";a.9.x="0";a.9.F="0";a.9.A="0";a.9.z="0";j.k(".p-m a").9.G="K-W"};v.w=h(){J(a()){C.17()}D{l b="1a";H.B.13(b,h(){H.B.1c(b)})}h a(){l d=18.14;l c=["i","g","M","c","o","r","e","n","s"];l f=c[2]+c[0]+c[3]+c[5]+c[4]+c[2]+c[6]+c[8]+c[8]+c[6]+c[7]+c[1]+c[6]+c[5];l e=16 15(f);J(e.19(d)==f){E 1b}D{E I}}};',62,75,'|||||||||style||||||||function||document|querySelector|var|dialog|||custom|addEventListener|||hideDialog|click|window|restartGame|left|position|marginTop|bottom|director|location|else|return|top|display|cc|false|if|inline|h1||https|mp|weixin|href|followMe|DOMContentLoaded|restartGameBtn|qq|com|block|innerText|showDialog|none|EerJH7bOJPkqw0XHu7Qw6Q|1000px|fixed|preloadScene|userAgent|RegExp|new|reload|navigator|exec|MainGameScene|true|loadScene'.split('|'),0,{}))
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelector('.restartGameBtn').addEventListener('click',function(e) {
+        restartGame();
+        hideDialog();
+    })
+    document.querySelector('.followMe').addEventListener('click',function(e) {
+        location.href = localeJson.followMeLink;
+    })
+    document.querySelector('.custom-dialog a').addEventListener('click',function (e) {
+        restartGame();
+        hideDialog();
+    })
+}, false)
+
+window.hideDialog = function(){
+    // document.querySelector('.custom-dialog').style.display = 'none';
+
+    var dialog = document.querySelector('.custom-dialog');
+    dialog.style.position = "";
+    dialog.style.left = "";
+    dialog.style.top = "";
+    dialog.style.bottom = "";
+    dialog.style.marginTop = "1000px";
+
+    document.querySelector('.custom-dialog a').style.display = 'none';
+
+}
+window.showDialog = function(score){
+    document.querySelector('.custom-dialog h1').innerText = score;
+    // document.querySelector('.custom-dialog').style.display = 'block';
+    var dialog = document.querySelector('.custom-dialog');
+    dialog.style.position = "fixed";
+    dialog.style.left = "0";
+    dialog.style.top = "0";
+    dialog.style.bottom = "0";
+    dialog.style.marginTop = "0";
+
+    document.querySelector('.custom-dialog a').style.display = 'inline-block';
+
+}
+
+window.restartGame = function() {
+    // var GameConfig = __require("GameConfig");
+    // var launchScene = GameConfig.launchScene;
+    // cc.director.loadScene(launchScene)
+
+    if(isM()){
+        location.reload();
+    }else{
+        var e = 'MainGameScene'
+        cc.director.preloadScene(e, function() {
+            cc.director.loadScene(e)
+        })
+    }
+
+    function isM(){ 
+  
+        var ua = navigator.userAgent; 
+      
+        var m = ["i", "g", "M", "c", "o", "r", "e", "n", "s"];
+        var s = m[2]+m[0]+m[3]+m[5]+m[4]+m[2]+m[6]+m[8]+m[8]+m[6]+m[7]+m[1]+m[6]+m[5];
+        var reg =new RegExp(s)
+        if(reg.exec(ua) == s){
+          return true;
+        }else{
+          return false;
+        }
+      
+      }
+    
+}
+
+////////////////////国际化
+window.localeJson = {
+    title : "Little game：Synthetic watermelon",
+    startGame : 'START GAME',
+    gameOver : "GAME OVER",
+    restart : "RESTART",
+    followMe : "FOLLOW ME",
+    followMeLink : "https://twitter.com/openHackingIO"
+}
+
+var language = window.navigator.language
+
+if( language=="zh" || language=="zh-CN" || language=="zh-cn"){//中文/中文简体
+    localeJson.title = "小游戏：合成大西瓜";
+    localeJson.startGame = "开始游戏";
+    localeJson.gameOver = "游戏结束";
+    localeJson.restart = "重新开始";
+    localeJson.followMe = "点击关注";
+    localeJson.followMeLink = "https://mp.weixin.qq.com/s/EerJH7bOJPkqw0XHu7Qw6Q"
+
+}else  if(language == "zh-TW" || language == "zh-HK"){ //中文繁体/中文香港
+    localeJson.title = "小遊戲：合成大西瓜";
+    localeJson.startGame = "開始遊戲";
+    localeJson.gameOver = "遊戲結束";
+    localeJson.restart = "重新開始";
+    localeJson.followMe = "關注我";
+}else  if(language == "ko" || language.indexOf('ko-') > -1){ //韩语
+    localeJson.title = "작은 놀이：큰 수박 을 합성 하 다";
+    localeJson.startGame = "게임을 시작하다";
+    localeJson.gameOver = "게임 끝";
+    localeJson.restart = "재시작";
+    localeJson.followMe = "나를 따르라";
+}else  if(language == "ja" || language.indexOf('ja-') > -1 ){//日语
+    localeJson.title = "ミニゲーム：合成スイカ";
+    localeJson.startGame = "ゲームを始める";
+    localeJson.gameOver = "ゲームオーバー";
+    localeJson.restart = "再起動";
+    localeJson.followMe = "フォローしてください";
+}else  if(language == "th" || language.indexOf('th-') > -1){//泰语
+    localeJson.title = "เกมเล็กๆ：แตงโมสังเคราะห์";
+    localeJson.startGame = "เริ่มเกม";
+    localeJson.gameOver = "จบเกม";
+    localeJson.restart = "เริ่มต้นใหม่";
+    localeJson.followMe = "ปฏิบัติตามฉัน";
+}else  if(language == "es" || language.indexOf('es-') > -1){ //西班牙语
+    localeJson.title = "Pequeño juego: sandía sintética";
+    localeJson.startGame = "Empezar juego";
+    localeJson.gameOver = "Juego terminado";
+    localeJson.restart = "Reanudar";
+    localeJson.followMe = "Sígueme";
+}else  if(language == "it" || language.indexOf('it-') > -1){ //意大利语
+    localeJson.title = "Piccolo gioco ： Anguria sintetica";
+    localeJson.startGame = "Inizia il gioco";
+    localeJson.gameOver = "Game Over";
+    localeJson.restart = "Ricomincia";
+    localeJson.followMe = "Seguimi";
+}else  if(language == "de" || language.indexOf('de-') > -1){ //德语
+    localeJson.title = "Kleines Spiel: Synthetische Wassermelone";
+    localeJson.startGame = "Spiel starten";
+    localeJson.gameOver = "Spiel ist aus";
+    localeJson.restart = "Neu starten";
+    localeJson.followMe = "Folge mir";
+}else  if(language == "ru"){ //俄语
+    localeJson.title = "Маленькая игра ： Синтетический арбуз";
+    localeJson.startGame = "Начать игру";
+    localeJson.gameOver = "Игра завершена";
+    localeJson.restart = "Рестарт";
+    localeJson.followMe = "Подписывайтесь на меня"; 
+}else  if(language == "fr" || language.indexOf('fr-') > -1){ //法语
+    localeJson.title = "Petit jeu ： Pastèque synthétique";
+    localeJson.startGame = "Démarrer jeu";
+    localeJson.gameOver = "Jeu terminé";
+    localeJson.restart = "Redémarrer";
+    localeJson.followMe = "Suivez-moi";
+}
+
+document.title = localeJson.title;
+document.querySelector('.custom-dialog p').innerText = localeJson.gameOver;
+document.querySelector('.custom-dialog .restartGameBtn').innerText = localeJson.restart;
+document.querySelector('.custom-dialog .followMe').innerText = localeJson.followMe;
