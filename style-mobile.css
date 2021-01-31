@@ -148,10 +148,11 @@ p.footer {
 } */
 
 .custom-dialog{
-  display: none;
-  position: fixed;
-  top:0;
-  left:0;
+  /* display: none; */
+  /* position: absolute; */
+  /* top:0; */
+  /* left:0; */
+  /* bottom:0; */
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.68);
@@ -184,10 +185,9 @@ p.footer {
 }
 .custom-dialog .ad{
   width: 80%;
-  height: 300px;
+  height: 40%;
   margin:20px auto;
-  /* background:white; */
 }
 
-.custom-dialog  a{ position: absolute;right:30px;top:30px; display: inline-block; width: 20px;height:3px; background: white;line-height: 0;font-size:0;vertical-align: middle;-webkit-transform: rotate(45deg);}
+.custom-dialog  a{ position: absolute;right:30px;top:30px; display: none; width: 20px;height:3px; background: white;line-height: 0;font-size:0;vertical-align: middle;-webkit-transform: rotate(45deg);}
 .custom-dialog  a:after{content:'/';display:block;width: 20px;height:3px; background: white;-webkit-transform: rotate(-90deg);}
