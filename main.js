@@ -204,10 +204,10 @@ window.boot = function () {
         BK.Script.loadlib();
     }
     else {
-        var bundledScript = settings.debug ? 'src/project.dev.js' : 'https://cdn.jsdelivr.net/gh/openHacking/game-watermelon@release-v1.0.8/src/project.js';
+        var bundledScript = settings.debug ? 'src/project.dev.js' : 'https://cdn.jsdelivr.net/gh/openHacking/game-watermelon@release-v1.0.9/src/project.js';
         if (jsList) {
             jsList = jsList.map(function (x) {
-                return 'https://cdn.jsdelivr.net/gh/openHacking/game-watermelon@release-v1.0.8/src/' + x;
+                return 'https://cdn.jsdelivr.net/gh/openHacking/game-watermelon@release-v1.0.9/src/' + x;
             });
             jsList.push(bundledScript);
         }
@@ -229,8 +229,8 @@ window.boot = function () {
 
     // init assets
     cc.AssetLibrary.init({
-        libraryPath: 'https://cdn.jsdelivr.net/gh/openHacking/game-watermelon@release-v1.0.8/res/import',
-        rawAssetsBase: 'https://cdn.jsdelivr.net/gh/openHacking/game-watermelon@release-v1.0.8/res/raw-',
+        libraryPath: 'https://cdn.jsdelivr.net/gh/openHacking/game-watermelon@release-v1.0.9/res/import',
+        rawAssetsBase: 'https://cdn.jsdelivr.net/gh/openHacking/game-watermelon@release-v1.0.9/res/raw-',
         rawAssets: settings.rawAssets,
         packedAssets: settings.packedAssets,
         md5AssetsMap: settings.md5AssetsMap,
